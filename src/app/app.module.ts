@@ -14,11 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { EmployeeMaterialModule } from './employee-material/employee-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
+import { EmployeeFormsServiceService } from './employee-forms-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    EmployeeFormsServiceService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents : [
+    EmployeeDialogComponent
+  ]
 })
 export class AppModule { }

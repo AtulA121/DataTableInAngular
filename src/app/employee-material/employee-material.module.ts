@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatTableModule, MatPaginatorModule, MatIconModule, MatSortModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatIconModule, MatSortModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogModule, MatToolbarModule, MatGridListModule, MatRadioModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 
 const empMaterials=[
     MatTableModule,
@@ -9,6 +9,16 @@ const empMaterials=[
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
     MatButtonModule
 ];
 

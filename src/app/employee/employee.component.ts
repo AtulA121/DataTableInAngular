@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeService } from '../employee.service';
-import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatDialogConfig } from '@angular/material';
+import { EmployeeDialogComponent } from '../employee-dialog/employee-dialog.component';
 
 @Component({
   selector: 'app-employee',
@@ -15,7 +16,7 @@ export class EmployeeComponent implements OnInit {
   dataSource : MatTableDataSource<any>;
   displayedColumns=["empId","empName","age","email","address","education","actions"];
 
-  constructor(private _empService : EmployeeService) { }
+  constructor(private _empService : EmployeeService,private _dialog : MatDialog) { }
 
   @ViewChild(MatSort,{static : true}) sort : MatSort;
   @ViewChild(MatPaginator,{static : true}) paginator : MatPaginator;
@@ -45,6 +46,14 @@ export class EmployeeComponent implements OnInit {
 
   applyFilter(){
     this.dataSource.filter=this.searchKey.trim().toLowerCase();
+  }
+
+  openCreatePopup(){
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=true;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="100px;"
+    this._dialog.open(EmployeeDialogComponent,dialogConfig);
   }
 
 }

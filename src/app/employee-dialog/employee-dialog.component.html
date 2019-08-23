@@ -1,0 +1,63 @@
+<!-- <div class="container">
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <span>Add Employee...</span>
+        <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+</div>
+ -->
+<form [formGroup]="_empForm.form" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="$key">
+                <mat-form-field>
+                    <input formControlName="empName" matInput placeholder="Employee Name...*">
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="empAge" matInput placeholder="Employee Age...">
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="empAddress" matInput placeholder="Employee Address...*">
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="empEmail" matInput placeholder="Employee Email...">
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="empEducation" matInput placeholder="Employee Education...">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="controles-container">
+                <div class="add-bottom-padding">
+                    <mat-radio-group formControlName="empGender">
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="2">Female</mat-radio-button>
+                        <mat-radio-button value="3">Other</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <mat-form-field>
+                <mat-select formControleName="empDepartment" placeholder="Employee Department">
+                    <mat-option>none</mat-option>
+                    <ng-container *ngFor="let dept of departments">
+                        <mat-option value="{{dept.id}}">{{dept.name}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input formControleName="empDate" matInput [matDatepicker]="picker" placeholder="hire Date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="add-bottom-padding">
+                <mat-checkbox formControlName="isPermanent">Permanent Employee</mat-checkbox>
+            </div>
+            <div class="button-row">
+                <button mat-raised-button color="primary" type="submit">submit</button>
+                <button mat-raised-button color="warn">clear</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
